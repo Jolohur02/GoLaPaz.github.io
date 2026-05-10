@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoLaPaz — Descubre La Paz como nunca antes</title>
+  <meta name="description" content="La app turística definitiva de La Paz, Bolivia. Descubre restaurantes, tours, vida nocturna, cultura, miradores y experiencias únicas en la ciudad más alta del mundo." />
+  <meta name="keywords" content="La Paz, Bolivia, turismo, restaurantes, tours, Death Road, Illimani, Gustu, viajes" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%23D4A843'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-size='20' font-weight='bold' fill='%231A2E5A'%3E⛰%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script type="module" crossorigin src="./assets/index-DpLUJtEq.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C6wz9tkm.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">⛰</span>
+        <span><span class="go">Go</span><span class="lapaz">LaPaz</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#categorias" class="active">Explorar</a>
+        <a href="#destacados">Destacados</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#promos">Promos</a>
+        <button class="nav-cta">Iniciar Sesión</button>
+      </div>
+      <button class="nav-hamburger" id="navHamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="./images/hero-lapaz.png" alt="Panorámica de La Paz con el Illimani al atardecer" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ La app turística #1 de La Paz</div>
+      <h1>Descubre <span class="highlight">La Paz</span> como nunca antes</h1>
+      <p>Restaurantes, tours, vida nocturna, cultura y aventura — todo en un solo lugar, con precios verificados y reseñas reales.</p>
+      <div class="hero-search">
+        <input type="text" id="heroSearch" placeholder="¿Qué quieres descubrir? (ej. Death Road, Gustu...)" />
+        <button id="heroSearchBtn">Buscar</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="number">500+</div><div class="label">Experiencias</div></div>
+        <div class="hero-stat"><div class="number">14</div><div class="label">Categorías</div></div>
+        <div class="hero-stat"><div class="number">4.8★</div><div class="label">Calificación</div></div>
+        <div class="hero-stat"><div class="number">10K+</div><div class="label">Viajeros</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="section" id="categorias">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Explora por categoría</span>
+        <h2>¿Qué tipo de experiencia buscas?</h2>
+        <p>De la alta cocina a la aventura extrema, La Paz tiene algo para cada viajero.</p>
+      </div>
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <!-- DESTACADOS -->
+  <section class="section" id="destacados">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Selección GoLaPaz</span>
+        <h2>Experiencias Destacadas</h2>
+        <p>Lugares verificados y recomendados por viajeros reales.</p>
+      </div>
+      <div class="featured-scroll" id="featuredScroll"></div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="section map-section" id="mapa">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Descubre en el mapa</span>
+        <h2>Mapa Interactivo de La Paz</h2>
+        <p>Encuentra cada experiencia en el mapa y planifica tu recorrido.</p>
+      </div>
+      <div class="map-filters" id="mapFilters"></div>
+      <div class="map-wrapper" id="mapContainer"></div>
+    </div>
+  </section>
+
+  <!-- COMUNIDAD -->
+  <section class="section" id="comunidad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Comunidad GoLaPaz</span>
+        <h2>Lo que dicen los viajeros</h2>
+        <p>Opiniones y experiencias reales de quienes ya descubrieron La Paz.</p>
+      </div>
+      <div class="community-grid" id="communityGrid"></div>
+    </div>
+  </section>
+
+  <!-- PROMOS -->
+  <section class="section" id="promos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">🎁 Solo en GoLaPaz</span>
+        <h2>Promociones Exclusivas</h2>
+        <p>Ofertas que solo encuentras aquí. Reserva con descuento.</p>
+      </div>
+      <div class="promos-grid" id="promosGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3><span class="go">Go</span>LaPaz</h3>
+          <p>La plataforma turística definitiva de La Paz, Bolivia. Descubre, reserva y vive experiencias auténticas en la ciudad más alta del mundo.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <a href="#categorias">Gastronomía</a>
+          <a href="#categorias">Tours & Aventura</a>
+          <a href="#categorias">Vida Nocturna</a>
+          <a href="#categorias">Cultura & Arte</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#">Sobre Nosotros</a>
+          <a href="#">Alianzas</a>
+          <a href="#">Para Negocios</a>
+          <a href="#">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 GoLaPaz. Hecho con ❤️ en La Paz, Bolivia.
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent"></div>
+  </div>
+
+</body>
+</html>
